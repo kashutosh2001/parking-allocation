@@ -21,6 +21,8 @@ public class FeedbackDaoImpl implements  FeedbackDao{
 		cn.loadDriver();
 		Connection con = cn.getConnection();
 		
+		System.out.println("In dao impl class ");
+		
 		String result = null;
 		String query = "insert into feedbacks values(?, ?)";
 		
