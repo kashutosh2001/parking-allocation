@@ -1,0 +1,8 @@
+com\yash\parkingslot\controller\UserLogin.class
+com\yash\parkingslot\daoservice\UserService.class
+com\yash\parkingslot\dbutils\JDBCUtil.class
+com\yash\parkingslot\daoimpl\UserServiceDaoImpl.class
+com\yash\parkingslot\Parking_Slot_Allocation\App.class
+com\yash\parkingslot\exceptions\UserException.class
+com\yash\parkingslot\model\User.class
+com\yash\parkingslot\controller\UserRegistration.class
