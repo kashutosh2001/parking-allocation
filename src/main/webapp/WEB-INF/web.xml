@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+
+<servlet>
+  		<servlet-name>Registration1</servlet-name>
+  		<servlet-class>Registration</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>Registration1</servlet-name>
+  		<url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>Login1</servlet-name>
+  		<servlet-class>Login</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>Login1</servlet-name>
+  		<url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  		<servlet-name>Welcome1</servlet-name>
+  		<servlet-class>Welcome</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  		<servlet-name>Welcome1</servlet-name>
+  		<url-pattern>/Welcome</url-pattern>
+  </servlet-mapping>
+  
+  </web-app>
