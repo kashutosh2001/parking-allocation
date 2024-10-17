@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.yash.parkingallocationsystem.dao.dao.FeedbackDao;
-import com.yash.parkingallocationsystem.dao.daoimpl.FeedbackDaoImpl;
+import com.yash.parkingallocationsystem.dao.FeedbackDao;
+import com.yash.parkingallocationsystem.daoimpl.FeedbackDaoImpl;
 import com.yash.parkingallocationsystem.model.Feedback;
 
 
@@ -32,6 +32,10 @@ public class FeedbackController extends HttpServlet{
 		if(result == "0")
 		{
 			System.out.println("data a aya h servlet p from database");
+//			out.println("<script type=\"text/javascript\">");
+//		    out.println("alert('Registration done succesfully!!'); window.location.href = \"Login.jsp\" ");
+//		    out.println("</script>");
+
 		}
 		else {
 			System.out.println("data nhi aaya servlet p");
