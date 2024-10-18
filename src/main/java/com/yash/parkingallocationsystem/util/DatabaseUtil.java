@@ -1,3 +1,4 @@
+//<<<<<<< HEAD
 package com.yash.parkingallocationsystem.util;
 
 import java.sql.Connection;
@@ -94,11 +95,15 @@ public class DatabaseUtil {
 	            throw new RuntimeException(ex.getMessage());
 	        }
 	    }
-	    public int executeUpdate(String query) {
+	    public int executeUpdate(String query)
+	    {
 	        try (Connection conn = openConnection();
-	             PreparedStatement pstmt = conn.prepareStatement(query)) {
+	             PreparedStatement pstmt = conn.prepareStatement(query)) 
+	        {
 	            return pstmt.executeUpdate();
-	        } catch (SQLException ex) {
+	        }
+	        catch (SQLException ex) 
+	        {
 	            System.out.println("problem here!");
 	            ex.printStackTrace();
 	            throw new RuntimeException(ex.getMessage());
@@ -133,4 +138,7 @@ public class DatabaseUtil {
 
 	        }
 	    }
-}
+	    
+}   
+	    
+	    
