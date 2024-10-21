@@ -4,25 +4,4 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-  <servlet>
-  	<servlet-name>FeedbackDaoImpl</servlet-name>
-  	<display-name>FeedbackDaoImpl</display-name>
-  	<description></description>
-  	<servlet-class>com.yash.parkingallocationsystem.dao.daoimpl.FeedbackDaoImpl</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  	<servlet-name>FeedbackDaoImpl</servlet-name>
-  	<url-pattern>/FeedbackDaoImpl</url-pattern>
-  </servlet-mapping>
-
-
-	<servlet>
-		<servlet-name>Feedback</servlet-name>
-		<servlet-class>com.example.YourServlet</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>YourServlet</servlet-name>
-		<url-pattern>/YourServlet</url-pattern>
-	</servlet-mapping>
 </web-app>

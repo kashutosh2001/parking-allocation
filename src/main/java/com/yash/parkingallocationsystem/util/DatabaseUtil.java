@@ -1,58 +1,79 @@
-//package com.yash.parkingallocationsystem.util;
-//
-//public class DatabaseUtil {
-//}
-
-
-
 package com.yash.parkingallocationsystem.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class DatabaseUtil {
 
-    private static final String DBurl = "jdbc:mysql://localhost:3306/parking_allocation_db";
-    private static final String DbDriver = "com.mysql.cj.jdbc.Driver";
-    private static final String DbUser = "root";
-    private static final String DbPass = "root";
+    //Database URL, Username, and Password.
 
-    public void loadDriver() {
+    static final String URL = "jdbc:mysql://localhost:3306/parkingslot";
+    static final String USER = "root";
+    static final String PASSWORD = "root";
+
+    static {
         try {
-            Class.forName(DbDriver);
-        } catch (ClassNotFoundException e) {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch
+        (ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public Connection getConnection() {
-        Connection con = null;
+    private Connection con = null;
+
+    public Connection openConnection() {
         try {
-            con = DriverManager.getConnection(DBurl, DbUser, DbPass);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            if (con == null) {
+                con = DriverManager.getConnection(URL, USER, PASSWORD);
+            }
+            if (con.isClosed()) {
+                con = DriverManager.getConnection(URL, USER, PASSWORD);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
         return con;
     }
 
-    // Combined method to close all resources
-    public void closeResources(Connection con) {
-        try 
-        {
-//            if (rs != null) {
-//                rs.close();
-//            }
-//            if (stmt != null) {
-//                stmt.close();
-//            }
-            if (con != null) {
-                con.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+    public PreparedStatement createPreparedStatement(String sql) {
+        try {
+            return openConnection().prepareStatement(sql);
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex.getMessage());
         }
     }
+
+    public void closePreparedStatement(PreparedStatement pstmt) {
+        try {
+            pstmt.close();
+        } catch (SQLException ex) {
+        }
+    }
+
+    public ResultSet createResultSet(String query) {
+        try {
+
+            return openConnection().createStatement().executeQuery(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
+
+    public void closeResultSet(ResultSet rs) {
+        try {
+            rs.close();
+        } catch (SQLException ex) {
+        }
+    }
+
+    public void closeConnection() {
+        try {
+            con.close();
+        } catch (SQLException ex) {
+        }
+    }
+
 }
